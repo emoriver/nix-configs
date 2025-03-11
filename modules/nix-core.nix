@@ -10,7 +10,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # auto upgrade dei pacchetti e del demone
-  services.nix-daemon.enable = true;
+  # services.nix-daemon.enable = true;
   # quest'altra configurazione è più generica e non sfrutta gli automatismi di darwin
   # nix.useDaemon = true;
 

@@ -175,6 +175,7 @@
   time.timeZone = "Europe/Rome";
 
   # fonts
+  /*
   fonts = {
     packages = with pkgs; [
       # icon fonts
@@ -195,4 +196,5 @@
       })
     ];
   };
+*/
 }
