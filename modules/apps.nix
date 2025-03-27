@@ -98,6 +98,7 @@
       "microsoft-edge"
       "fujifilm-tether-app"
       "dbeaver-community"
+      "gimp"
     ];
   };
 }
