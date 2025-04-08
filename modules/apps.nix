@@ -99,6 +99,7 @@
       "fujifilm-tether-app"
       "dbeaver-community"
       "gimp"
+      "vscodium"
     ];
   };
 }
