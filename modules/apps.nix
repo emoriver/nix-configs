@@ -100,6 +100,7 @@
       "dbeaver-community"
       "gimp"
       "vscodium"
+      "whatsapp"
     ];
   };
 }
