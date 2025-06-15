@@ -1,6 +1,21 @@
 {
   description = "Configurazione di partenza usando il boilerplate di Misterio77 Standard";
 
+  /*
+  
+  1. installare qualche applicazione con home-manager
+  2. aggiungere altri host
+  3. aggiungere altri utenti
+  4. lavorare con le password
+  5. lavorare con i dotfiles sotto home-manager
+  6. implementare l'impermanenza
+  7. aggiungere pacchetti personalizzati
+  8. lavorare con overlays
+  9. lavorare con i moduli di nixos
+  10. lavorare con i moduli di home-manager
+  
+  */
+
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
