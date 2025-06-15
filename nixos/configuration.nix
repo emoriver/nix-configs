@@ -69,10 +69,95 @@
   };
 
   # FIXME: Add the rest of your current configuration
+##########################
 
+# Use the systemd-boot EFI boot loader.
+  #boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "zfs" ];
+  networking.hostId = "b65ddf2c";
 
+  # This is the regular setup for grub on UEFI which manages /boot automatically.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
 
+  # This will mirror all UEFI files, kernels, grub menus and things
+  # needed to boot to the other drive.
+  boot.loader.grub.mirroredBoots = [
+    { devices = [ "/dev/disk/by-uuid/9F26-567E" ];
+      path = "/boot-fallback"; }
+  ];
+
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+
+  # Set your time zone.
+  time.timeZone = "Europe/Rome";
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Abilitazione KDE Plasma 6
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "it";
+    variant = "";
+  };
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
+
+  # Enable sound.
+  # services.pulseaudio.enable = true;
+  # OR
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.libinput.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.andrea = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    hashedPassword = "$y$j9T$lvXAjw6Igk6ncFj9mwG5t1$PjzBovVCANq3hknwG8WBqlEkAfXOVgy7/AxY8/mJRZC";
+    packages = with pkgs; [
+      tree
+    ];
+  };
+
+  programs.firefox.enable = true;
+
+  # List packages installed in system profile.
+  # You can use https://search.nixos.org/ to find more packages (and options).
+  environment.systemPackages = with pkgs; [
+  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+  ];
+
+##########################
 
   # Set your hostname
   networking.hostName = "tpw541nixos";
@@ -81,16 +166,17 @@
   users.users = {
     # Replace with your username
     emoriver = {
-      # TODO: You can set an initial password for your user.
+      # You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "correcthorsebatterystaple";
+      #initialPassword = "correcthorsebatterystaple";
+      hashedPassword = "$y$j9T$lvXAjw6Igk6ncFj9mwG5t1$PjzBovVCANq3hknwG8WBqlEkAfXOVgy7/AxY8/mJRZC";
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
+      # Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
+      extraGroups = ["wheel" "audio" "video" "networkmanager" "sudo"];
     };
   };
 
@@ -103,16 +189,18 @@
       PermitRootLogin = "no";
       # Opinionated: use keys only.
       # Remove if you want to SSH using passwords
-      #PasswordAuthentication = false;
+      PasswordAuthentication = false;
     };
   };
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
 }
 
 
-
+/*# ----------------------------------------------------------------------------------------------------
 
 
 
@@ -263,3 +351,4 @@
 
 }
 
+*/
