@@ -137,16 +137,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.andrea = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    hashedPassword = "$y$j9T$lvXAjw6Igk6ncFj9mwG5t1$PjzBovVCANq3hknwG8WBqlEkAfXOVgy7/AxY8/mJRZC";
-    packages = with pkgs; [
-      tree
-    ];
-  };
-
   programs.firefox.enable = true;
 
   # List packages installed in system profile.
@@ -160,7 +150,7 @@
 ##########################
 
   # Set your hostname
-  networking.hostName = "tpw541nixos";
+  networking.hostName = "w541onnixos";
 
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.users = {
@@ -193,7 +183,7 @@
     };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  #nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "25.05";
