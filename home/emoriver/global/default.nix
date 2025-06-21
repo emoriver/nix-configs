@@ -1,5 +1,3 @@
-/*
-
 {
   inputs,
   lib,
@@ -11,8 +9,8 @@
   imports =
     [
       inputs.impermanence.nixosModules.home-manager.impermanence
-      ../features/cli
-      ../features/helix
+      #../features/cli
+      #../features/helix
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
@@ -36,14 +34,15 @@
   };
 
   home = {
-    username = lib.mkDefault "gabriel";
+    username = lib.mkDefault "emoriver";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
-    stateVersion = lib.mkDefault "22.05";
-    sessionPath = ["$HOME/.local/bin"];
-    sessionVariables = {
-      NH_FLAKE = "$HOME/Documents/NixConfig";
-    };
+    stateVersion = lib.mkDefault "25.05";
+    #sessionPath = ["$HOME/.local/bin"];
+    #sessionVariables = {
+    #  NH_FLAKE = "$HOME/Documents/NixConfig";
+    #};
 
+/*
     persistence = {
       "/persist/${config.home.homeDirectory}" = {
         defaultDirectoryMethod = "symlink";
@@ -116,6 +115,5 @@
     specialisation
     toggle-theme
   ];
-}
-
 */
+}
