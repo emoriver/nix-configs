@@ -1,0 +1,53 @@
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: let
+  ifTheyExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
+in {
+  users.mutableUsers = false;
+  users.users.emoriver = {
+    isNormalUser = true;
+    #shell = pkgs.fish;
+    extraGroups = ifTheyExist [
+      "audio"
+      #"deluge"
+      #"docker"
+      "git"
+      #"i2c"
+      #"libvirtd"
+      #"lxd"
+      #"minecraft"
+      #"mysql"
+      #"network"
+      #"plugdev"
+      #"podman"
+      #"tss"
+      "video"
+      "wheel"
+      #"wireshark"
+
+      "networkmanager"
+      "sudo"
+    ];
+
+    #openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/emoriver/ssh.pub);
+    #hashedPasswordFile = config.sops.secrets.gabriel-password.path;
+    #packages = [pkgs.home-manager];
+  };
+
+/*
+  sops.secrets.gabriel-password = {
+    sopsFile = ../../secrets.yaml;
+    neededForUsers = true;
+  };
+*/
+
+  home-manager.users.gabriel = import ../../../../home/emoriver/${config.networking.hostName}.nix;
+
+  security.pam.services = {
+    swaylock = {};
+    hyprlock = {};
+  };
+}

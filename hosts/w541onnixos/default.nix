@@ -177,7 +177,7 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMW7C8X/k4K9qmbvrOWorpDz0v1lPcvBTA9psCtWIOtQ emoriver@live.it"
       ];
       # Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel" "audio" "video" "networkmanager" "sudo"];
+      #extraGroups = ["wheel" "audio" "video" "networkmanager" "sudo"];
     };
   };
 
