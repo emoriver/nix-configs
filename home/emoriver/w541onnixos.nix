@@ -3,7 +3,7 @@
   ...
 }: {
   imports = [
-    #./global
+    ./global
     #./features/desktop/hyprland
     #./features/desktop/wireless
     #./features/rgb
