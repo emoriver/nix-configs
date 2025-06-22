@@ -6,27 +6,30 @@
   programs.browserpass.enable = true;
   programs.firefox = {
     enable = true;
-/*    profiles.gabriel = {
+    profiles.emoriver = {
       search = {
         force = true;
-        default = "kagi";
+        default = "ddg";
         privateDefault = "ddg";
-        order = ["kagi" "ddg" "google"];
-        engines = {
-          kagi = {
-            name = "Kagi";
-            urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
-            icon = "https://kagi.com/favicon.ico";
-          };
-          bing.metaData.hidden = true;
+        order = ["ddg" "bing" "google"];
+        #engines = {
+        #  kagi = {
+        #    name = "Kagi";
+        #    urls = [{template = "https://kagi.com/search?q={searchTerms}";}];
+        #    icon = "https://kagi.com/favicon.ico";
+        #  };
+        #  bing.metaData.hidden = true;
         };
       };
       bookmarks = {};
       extensions.packages = with pkgs.inputs.firefox-addons; [
-        ublock-origin
-        browserpass
+        privacybadger
+        ghostery
+        sidebery
       ];
       bookmarks = {};
+
+/*
       settings = {
         "browser.startup.homepage" = "about:home";
 
