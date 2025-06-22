@@ -62,6 +62,6 @@
   ];
  */
  
-  # Cleanup stuff included by default
-  services.speechd.enable = false;
+  # Cleanup stuff included by default - error with default accessibility services!
+  #services.speechd.enable = false;
 }
