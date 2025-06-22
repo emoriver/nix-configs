@@ -21,9 +21,9 @@
         #  bing.metaData.hidden = true;
 
         extensions = [
-          privacybadger
-          ghostery
-          sidebery
+          "privacybadger"
+          "ghostery"
+          "sidebery"
           ];
         };
       };
