@@ -3,6 +3,8 @@
   ...
 }: {
   imports = [
+    ../common
+
     #./deluge.nix
     #./discord.nix
     #./dragon.nix

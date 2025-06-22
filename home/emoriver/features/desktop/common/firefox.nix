@@ -3,7 +3,7 @@
   lib,
   ...
 }: {
-  programs.browserpass.enable = true;
+  #programs.browserpass.enable = true;
   programs.firefox = {
     enable = true;
     profiles.emoriver = {
