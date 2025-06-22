@@ -21,13 +21,13 @@
         #  bing.metaData.hidden = true;
         };
       };
-      bookmarks = {};
+      #bookmarks = {};
       extensions.packages = with pkgs.inputs.firefox-addons; [
         privacybadger
         ghostery
         sidebery
       ];
-      bookmarks = {};
+      #bookmarks = {};
 
 /*
       settings = {
