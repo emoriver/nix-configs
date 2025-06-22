@@ -8,7 +8,7 @@
 }: {
   imports =
     [
-      inputs.impermanence.nixosModules.home-manager.impermanence
+      #inputs.impermanence.nixosModules.home-manager.impermanence
       #../features/cli
       #../features/helix
     ]
@@ -57,8 +57,10 @@
         allowOther = true;
       };
     };
+*/    
   };
 
+/*
   colorscheme.mode = lib.mkOverride 1499 "dark";
   specialisation = {
     dark.configuration.colorscheme.mode = lib.mkOverride 1498 "dark";
@@ -116,4 +118,5 @@
     toggle-theme
   ];
 */
+
 }

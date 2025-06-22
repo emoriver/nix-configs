@@ -44,10 +44,17 @@ in {
   };
 */
 
-  home-manager.users.gabriel = import ../../../../home/emoriver/${config.networking.hostName}.nix;
+  home-manager.users.emoriver = import ../../../../home/emoriver/${config.networking.hostName}.nix;
 
+/*
   security.pam.services = {
     swaylock = {};
     hyprlock = {};
+  };
+*/
+
+  services.xserver.xkb = {
+    layout = "it";
+    variant = "";
   };
 }

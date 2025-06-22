@@ -25,7 +25,7 @@
     ./hardware-configuration.nix
 
     ../common/global
-    #../common/users/gabriel
+    ../common/users/emoriver
 
     #../common/optional/peripherals.nix
     #../common/optional/greetd.nix
@@ -123,17 +123,17 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  #services.xserver.enable = true;
 
   # Abilitazione KDE Plasma 6
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  #services.displayManager.sddm.enable = true;
+  #services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "it";
-    variant = "";
-  };
+  #services.xserver.xkb = {
+  #  layout = "it";
+  #  variant = "";
+  #};
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
