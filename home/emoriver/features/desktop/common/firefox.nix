@@ -19,17 +19,12 @@
         #    icon = "https://kagi.com/favicon.ico";
         #  };
         #  bing.metaData.hidden = true;
-
-        extensions = [
-          "privacybadger"
-          "ghostery"
-          "sidebery"
-          ];
-        };
       };
       
 /*      
       bookmarks = {};
+
+      # Deprecated!!!
       extensions.packages = with pkgs.inputs.firefox-addons; [
         privacybadger
         ghostery
