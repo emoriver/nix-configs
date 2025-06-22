@@ -19,17 +19,24 @@
         #    icon = "https://kagi.com/favicon.ico";
         #  };
         #  bing.metaData.hidden = true;
+
+        extensions = [
+          privacybadger
+          ghostery
+          sidebery
+          ];
         };
       };
-      #bookmarks = {};
+      
+/*      
+      bookmarks = {};
       extensions.packages = with pkgs.inputs.firefox-addons; [
         privacybadger
         ghostery
         sidebery
       ];
-      #bookmarks = {};
+      bookmarks = {};
 
-/*
       settings = {
         "browser.startup.homepage" = "about:home";
 
