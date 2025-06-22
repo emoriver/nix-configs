@@ -27,6 +27,7 @@
     ../common/global
     ../common/users/emoriver
 
+    ../common/optional/kde.nix
     #../common/optional/peripherals.nix
     #../common/optional/greetd.nix
     #../common/optional/pipewire.nix
