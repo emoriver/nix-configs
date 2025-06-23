@@ -162,7 +162,7 @@
                   tpmSupport = true;
               }).fd];
           };
-          qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+          vhostUserPackages = with pkgs; [ virtiofsd ];
       };
   };
 
