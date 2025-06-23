@@ -6,7 +6,7 @@
   imports = [
     #./virt-manager.nix
     ./vscodium.nix
-    ./dbeaver.nix
+    #./dbeaver.nix
 
     #./deluge.nix
     #./discord.nix
