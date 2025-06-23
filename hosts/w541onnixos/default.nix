@@ -162,7 +162,7 @@
                   tpmSupport = true;
               }).fd];
           };
-          vhostUserPackages = with pkgs; [ virtiofsd ];
+          #vhostUserPackages = with pkgs; [ virtiofsd ];
       };
   };
 
