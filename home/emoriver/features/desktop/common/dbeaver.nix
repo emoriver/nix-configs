@@ -3,7 +3,7 @@
   ...
 }: {
 
-  #programs.dbeaver = {
-  #  enable = true;
-  #};
+  programs.dbeaver-bin = {
+    enable = true;
+  };
 }
