@@ -4,7 +4,8 @@
   ...
 }: {
   imports = [
-    ./libvirt.nix
+    ./virt-manager.nix
+    ./vscodium.nix
 
     #./deluge.nix
     #./discord.nix
