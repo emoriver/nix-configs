@@ -168,6 +168,8 @@
   virtualisation.spiceUSBRedirection.enable = true;
 
   programs."virt-manager".enable = true;
+  programs."win-virtio".enable = true;
+  programs."win-spice".enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
