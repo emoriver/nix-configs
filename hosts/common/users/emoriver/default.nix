@@ -30,6 +30,7 @@ in {
 
       "networkmanager"
       "sudo"
+      "libvirtd"
     ];
 
     #openssh.authorizedKeys.keys = lib.splitString "\n" (builtins.readFile ../../../../home/emoriver/ssh.pub);

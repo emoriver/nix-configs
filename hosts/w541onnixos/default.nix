@@ -148,6 +148,27 @@
     pulse.enable = true;
   };
 
+# Virtualising with libvirt and QEMU
+virtualisation.libvirtd.enable = true;
+
+virtualisation.spiceUSBRedirection.enable = true;
+
+  virtualisation.libvirtd = {
+      enable = true;
+      qemu = {
+          package = pkgs.qemu_kvm;
+          runAsRoot = true;
+          swtpm.enable = true;
+          ovmf = {
+              enable = true;
+              packages = [(pkgs.OVMF.override {
+                  secureBoot = true;
+                  tpmSupport = true;
+              }).fd];
+          };
+      };
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 

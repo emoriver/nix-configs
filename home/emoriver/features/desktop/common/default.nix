@@ -4,6 +4,8 @@
   ...
 }: {
   imports = [
+    ./libvirt.nix
+
     #./deluge.nix
     #./discord.nix
     #./dragon.nix
