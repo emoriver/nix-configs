@@ -3,9 +3,9 @@
   ...
 }: {
 
-  #programs.virt-manager = {
-  #  enable = true;
-  #};
+  programs.virt-manager = {
+    enable = true;
+  };
 
   home.pointerCursor = {
     gtk.enable = true;
