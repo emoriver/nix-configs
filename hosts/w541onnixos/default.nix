@@ -162,13 +162,13 @@
                   tpmSupport = true;
               }).fd];
           };
-          #vhostUserPackages = with pkgs; [ virtiofsd ];
+          vhostUserPackages = with pkgs; [ virtiofsd ];
       };
   };
 
   virtualisation.spiceUSBRedirection.enable = true;
 
-  #programs."virt-manager".enable = true;
+  programs."virt-manager".enable = true;
   #programs."win-virtio".enable = true;
   #programs."win-spice".enable = true;
 
