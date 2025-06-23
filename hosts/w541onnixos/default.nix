@@ -160,8 +160,8 @@
               packages = [(pkgs.OVMF.override {
                   secureBoot = true;
                   tpmSupport = true;
-                  virtiofsd = true;
               }).fd];
+            qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
           };
       };
   };
