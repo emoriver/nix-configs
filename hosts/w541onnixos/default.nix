@@ -148,11 +148,7 @@
     pulse.enable = true;
   };
 
-# Virtualising with libvirt and QEMU
-virtualisation.libvirtd.enable = true;
-
-virtualisation.spiceUSBRedirection.enable = true;
-
+  # Virtualising with libvirt and QEMU
   virtualisation.libvirtd = {
       enable = true;
       qemu = {
@@ -168,6 +164,8 @@ virtualisation.spiceUSBRedirection.enable = true;
           };
       };
   };
+
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
