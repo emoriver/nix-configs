@@ -4,9 +4,8 @@
   ...
 }: {
   imports = [
-    #./virt-manager.nix
+    ./virt-manager.nix
     ./vscodium.nix
-    #./dbeaver.nix
 
     #./deluge.nix
     #./discord.nix
@@ -22,8 +21,6 @@
   ];
 
   programs.firefox.enable = true;
-
-  programs.virt-manager.enable = true;
 
 /*
   home.packages = [
