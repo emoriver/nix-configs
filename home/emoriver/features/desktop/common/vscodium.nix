@@ -7,7 +7,7 @@
     enable = true;
     package = pkgs.vscodium;
     profiles.default.extensions = with pkgs.vscode-extensions; [
-      vscode-nix
+      bbenoist.nix
     ];
   };
 }
