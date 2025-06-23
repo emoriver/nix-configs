@@ -161,8 +161,8 @@
                   secureBoot = true;
                   tpmSupport = true;
               }).fd];
-            qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
           };
+          qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
       };
   };
 
