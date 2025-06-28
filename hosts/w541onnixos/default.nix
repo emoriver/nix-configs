@@ -30,10 +30,13 @@
     ../common/optional/kde.nix
     #../common/optional/peripherals.nix
     #../common/optional/greetd.nix
-    #../common/optional/pipewire.nix
+    ../common/optional/pipewire.nix
     #../common/optional/quietboot.nix
     #../common/optional/wireless.nix
     #../common/optional/lxd.nix
+    ../common/optional/mirroredgrubboot.nix
+
+    ../common/optional/virt-manager.nix
 
     #../common/optional/starcitizen-fixes.nix
   ];
@@ -82,34 +85,12 @@
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
-  # FIXME: Add the rest of your current configuration
-
-
-# Use the systemd-boot EFI boot loader.
-  #boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.supportedFilesystems = [ "zfs" ];
-  networking.hostId = "b65ddf2c";
-
-  # This is the regular setup for grub on UEFI which manages /boot automatically.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.device = "nodev";
-
-  # This will mirror all UEFI files, kernels, grub menus and things
-  # needed to boot to the other drive.
-  boot.loader.grub.mirroredBoots = [
-    { devices = [ "/dev/disk/by-uuid/9F26-567E" ];
-      path = "/boot-fallback"; }
-  ];
-
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  #time.timeZone = "Europe/Rome";
+
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -123,12 +104,7 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  #services.xserver.enable = true;
 
-  # Abilitazione KDE Plasma 6
-  #services.displayManager.sddm.enable = true;
-  #services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   #services.xserver.xkb = {
@@ -140,37 +116,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-  # Virtualising with libvirt and QEMU
-  virtualisation.libvirtd = {
-      enable = true;
-      qemu = {
-          package = pkgs.qemu_kvm;
-          runAsRoot = true;
-          swtpm.enable = true;
-          ovmf = {
-              enable = true;
-              packages = [(pkgs.OVMF.override {
-                  secureBoot = true;
-                  tpmSupport = true;
-              }).fd];
-          };
-          vhostUserPackages = with pkgs; [ virtiofsd ];
-      };
-  };
-
-  virtualisation.spiceUSBRedirection.enable = true;
-
-  programs."virt-manager".enable = true;
-  #programs."win-virtio".enable = true;
-  #programs."win-spice".enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -188,23 +133,8 @@
   # Set your hostname
   networking.hostName = "w541onnixos";
 
-  # Configure your system-wide user settings (groups, etc), add more users as needed.
-  users.users = {
-    # Replace with your username
-    emoriver = {
-      # You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
-      #initialPassword = "correcthorsebatterystaple";
-      hashedPassword = "$y$j9T$lvXAjw6Igk6ncFj9mwG5t1$PjzBovVCANq3hknwG8WBqlEkAfXOVgy7/AxY8/mJRZC";
-      isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMW7C8X/k4K9qmbvrOWorpDz0v1lPcvBTA9psCtWIOtQ emoriver@live.it"
-      ];
-      # Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      #extraGroups = ["wheel" "audio" "video" "networkmanager" "sudo"];
-    };
-  };
+  networking.hostId = "b65ddf2c";
+
 
   # This setups a SSH server. Very important if you're setting up a headless system.
   # Feel free to remove if you don't need it.

@@ -1,4 +1,4 @@
-{
+/* {
   pkgs,
   ...
 }: {
@@ -12,4 +12,4 @@
   #  package = pkgs.vanilla-dmz;
   #  name = "Vanilla-DMZ";
   #};
-}
+} */

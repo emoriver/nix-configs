@@ -1,8 +1,6 @@
-/*
-
 {pkgs, ...}: {
   imports = [
-    ./fish
+/*     ./fish
 
     ./bash.nix
     ./bat.nix
@@ -18,10 +16,12 @@
     ./ssh.nix
     ./xpo.nix
     ./fzf.nix
-    ./jira.nix
+    ./jira.nix */
+
+    ./.zsh.nix
   ];
   home.packages = with pkgs; [
-    comma # Install and run programs by sticking a , before them
+/*     comma # Install and run programs by sticking a , before them
     distrobox # Nice escape hatch, integrates docker images with my environment
 
     bc # Calculator
@@ -42,7 +42,8 @@
     nix-diff # Differ, more detailed
     nix-output-monitor
     nh # Nice wrapper for NixOS and HM
+ */
+    yazi # TUI file manager
   ];
-}
+ }
 
-*/
