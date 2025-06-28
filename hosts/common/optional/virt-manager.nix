@@ -1,4 +1,7 @@
 {
+  pkgs,
+  ...
+}: {
   # Virtualising with libvirt and QEMU
   virtualisation.libvirtd = {
       enable = true;
