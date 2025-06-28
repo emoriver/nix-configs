@@ -1,17 +1,21 @@
 {
-    shellAliases = {
-        ll = "ls -l";
-        update = "sudo nixos-rebuild switch";
-    };
-    
-    history.size = 10000;
-    history.ignoreAllDups = true;
-    history.path = "$HOME/.zsh_history";
-    history.ignorePatterns = ["rm *" "pkill *" "cp *"];
-
-    oh-my-zsh = {
+    programs.zsh = {
         enable = true;
-        plugins = [ "git" "thefuck" ];
-        theme = "robbyrussell";
+
+        shellAliases = {
+            ll = "ls -l";
+            update = "sudo nixos-rebuild switch";
+        };
+        
+        history.size = 10000;
+        history.ignoreAllDups = true;
+        history.path = "$HOME/.zsh_history";
+        history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+
+        oh-my-zsh = {
+            enable = true;
+            plugins = [ "git" ];
+            theme = "robbyrussell";
+        };
     };
 }
