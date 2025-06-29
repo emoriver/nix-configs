@@ -10,7 +10,7 @@
     #./deluge.nix
     #./discord.nix
     #./dragon.nix
-    #./firefox.nix
+    ./firefox.nix
     ./font.nix
     #./gtk.nix
     #./kdeconnect.nix
@@ -20,7 +20,7 @@
     #./sublime-music.nix
   ];
 
-  programs.firefox.enable = true;
+  #programs.firefox.enable = true;
 
 /*
   home.packages = [
