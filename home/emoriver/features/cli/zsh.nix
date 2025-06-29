@@ -15,9 +15,7 @@
         oh-my-zsh = {
             enable = true;
             plugins = [ "git" ];
-            theme = "robbyrussell";
+            theme = "agnoster";
         };
-
-        home.packages = with pkgs; [zsh-command-time];
     };
 }

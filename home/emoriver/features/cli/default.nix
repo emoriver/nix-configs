@@ -47,6 +47,8 @@
     nh # Nice wrapper for NixOS and HM
  */
     yazi # TUI file manager
+
+    zsh-command-time 
   ];
  }
 
