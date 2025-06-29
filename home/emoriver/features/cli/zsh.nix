@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
     programs.zsh = {
         enable = true;
 
@@ -17,5 +17,7 @@
             plugins = [ "git" ];
             theme = "robbyrussell";
         };
+
+        home.packages = with pkgs; [zsh-command-time];
     };
 }
