@@ -6,7 +6,7 @@
   #programs.browserpass.enable = true;
   programs.firefox = {
     enable = true;
-    profiles.emoriver = {
+/*    profiles.emoriver = {
       search = {
         force = true;
         default = "ddg";
@@ -21,7 +21,7 @@
         #  bing.metaData.hidden = true;
       };
       
-/*      
+      
       bookmarks = {};
 
       # Deprecated!!!
@@ -131,6 +131,7 @@
       # "/persist/${config.home.homeDirectory}".directories = [ ".mozilla/firefox" ];
     };
   };
+*/
 
   xdg.mimeApps.defaultApplications = {
     "text/html" = ["firefox.desktop"];
@@ -138,6 +139,4 @@
     "x-scheme-handler/http" = ["firefox.desktop"];
     "x-scheme-handler/https" = ["firefox.desktop"];
   };
-*/
-
 }
