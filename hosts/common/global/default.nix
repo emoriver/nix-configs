@@ -13,7 +13,7 @@
       ./zsh.nix
       ./locale.nix
       #./nix.nix
-      #./openssh.nix
+      ./openssh.nix
       #./optin-persistence.nix
       #./podman.nix
       #./sops.nix
