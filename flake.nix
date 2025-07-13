@@ -69,31 +69,16 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # replace with your hostname
+      # Lenovo Workstation W541 for virtualization
       w541onnixos = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/w541onnixos];
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main nixos configuration file <
-          #./nixos/configuration.nix
-          ./hosts/w541onnixos
-        ];
+      };
+      # First NixOS distro under WSL on Mac Pro trashcan
+      nixoswsl1mp = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/nixoswsl1mp];
+        specialArgs = {inherit inputs outputs;};
       };
     };
-
-/*
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      # replace with your username@hostname
-      "emoriver@w541onnixos" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
-        ];
-      };
-    };
-*/ 
   };
 }
