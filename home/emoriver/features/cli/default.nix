@@ -44,8 +44,9 @@
     nvd # Differ
     nix-diff # Differ, more detailed
     nix-output-monitor
+*/
     nh # Nice wrapper for NixOS and HM
- */
+
     yazi # TUI file manager
 
     zsh-command-time 
