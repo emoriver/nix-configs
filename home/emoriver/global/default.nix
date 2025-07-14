@@ -60,13 +60,6 @@
 */
   };
 
-  # Garbage collection settings (automatically clean older generations)
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
-
 /*
   colorscheme.mode = lib.mkOverride 1499 "dark";
   specialisation = {

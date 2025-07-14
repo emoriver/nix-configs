@@ -83,6 +83,13 @@
     # Opinionated: make flake registry and nix path match flake inputs
     registry = lib.mapAttrs (_: flake: {inherit flake;}) flakeInputs;
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
+
+    # Garbage collection settings (automatically clean older generations)
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
 
   # Pick only one of the below networking options.
@@ -93,7 +100,7 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  networking.interfaces.eth0.useDHCP = true;
+  networking.interfaces.enp0s25.useDHCP = true;
   networking.interfaces.br0.useDHCP = true;
   networking.bridges = {
     "br0" = {
