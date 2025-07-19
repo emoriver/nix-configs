@@ -22,7 +22,8 @@
         "flakes"
         "ca-derivations"
       ];
-      warn-dirty = false;
+      # doesn't work
+      #warn-dirty = false;
     };
   };
 
