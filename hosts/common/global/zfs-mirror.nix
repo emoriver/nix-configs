@@ -2,56 +2,52 @@
   disko.devices = {
     disk = {
       disk1 = {
-        root = {
-          type = "disk";
-          device = "/dev/sda___________";
-          content = {
-            type = "gpt";
-            partitions = {
-              ESP = {
-                size = "512M";
-                type = "EF00";
-                content = {
-                  type = "filesystem";
-                  format = "vfat";
-                  mountpoint = "/boot";
-                  mountOptions = [ "nofail" ];
-                };
+        type = "disk";
+        device = "/dev/sda___________";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              size = "512M";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "nofail" ];
               };
-              zfs = {
-                size = "100%";
-                content = {
-                  type = "zfs";
-                  pool = "zroot";
-                };
+            };
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "zroot";
               };
             };
           };
         };
       };
       disk2 = {
-        root = {
-          type = "disk";
-          device = "/dev/sdb___________";
-          content = {
-            type = "gpt";
-            partitions = {
-              ESP = {
-                size = "512M";
-                type = "EF00";
-                content = {
-                  type = "filesystem";
-                  format = "vfat";
-                  mountpoint = "/boot-fallback";
-                  mountOptions = [ "nofail" ];
-                };
+        type = "disk";
+        device = "/dev/sdb___________";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              size = "512M";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot-fallback";
+                mountOptions = [ "nofail" ];
               };
-              zfs = {
-                size = "100%";
-                content = {
-                  type = "zfs";
-                  pool = "zroot";
-                };
+            };
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "zroot";
               };
             };
           };
@@ -80,17 +76,17 @@
         datasets = {
           "root" = {
             type = "zfs_fs";
-            mountpoint = "/root";
+            mountpoint = "/";
           };
           "root/nix" = {
             type = "zfs_fs";
             options.mountpoint = "/root/nix";
-            mountpoint = "/root/nix";
+            mountpoint = "/nix";
           };
           "root/home" = {
             type = "zfs_fs";
             options.mountpoint = "/root/home";
-            mountpoint = "/root/home";
+            mountpoint = "/home";
           };
         
           #to investigate and understand
