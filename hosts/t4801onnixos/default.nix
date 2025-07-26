@@ -19,13 +19,13 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
-    ../common/users/emoriver
+    ../common/users/carpinera
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
 
     ../common/global
-    ../common/users/emoriver
+    ../common/users/carpinera
 
     ../common/optional/kde.nix
     #../common/optional/peripherals.nix
@@ -129,7 +129,7 @@
   ];
 
   # Set your hostname
-  networking.hostName = "w541onnixos";
+  networking.hostName = "t480onnixos";
 
   networking.hostId = "b65ddf2c";
 
