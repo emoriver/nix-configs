@@ -84,8 +84,8 @@
         specialArgs = {inherit inputs outputs;};
       };
       # Lenovo T480 - 1 of 2 - for virtualization
-      t14801onnixos = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/t14801onnixos];
+      t4801onnixos = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/t4801onnixos];
         specialArgs = {inherit inputs outputs;};
       };
     };

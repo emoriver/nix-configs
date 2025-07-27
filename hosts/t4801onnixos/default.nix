@@ -34,7 +34,7 @@
     #../common/optional/quietboot.nix
     #../common/optional/wireless.nix
     #../common/optional/lxd.nix
-    ../common/optional/mirroredgrubboot.nix
+    ./mirroredgrubboot.nix
 
     ../common/optional/virt-manager.nix
 
@@ -129,9 +129,9 @@
   ];
 
   # Set your hostname
-  networking.hostName = "t480onnixos";
+  networking.hostName = "t4801onnixos";
 
-  networking.hostId = "b65ddf2c";
+  networking.hostId = "7aad8868";
 
 
   # This setups a SSH server. Very important if you're setting up a headless system.
