@@ -35,7 +35,7 @@
   };
 
   home = {
-    username = lib.mkDefault "emoriver";
+    username = lib.mkDefault "carpinera";
     homeDirectory = lib.mkDefault "/home/${config.home.username}";
     stateVersion = lib.mkDefault "25.05";
     sessionPath = ["$HOME/.local/bin"];
@@ -59,6 +59,13 @@
       };
     };
 */
+  };
+
+  # Garbage collection settings (automatically clean older generations)
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
 
 /*
